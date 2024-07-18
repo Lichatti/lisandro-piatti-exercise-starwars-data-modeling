@@ -36,12 +36,20 @@ class User(Base):
 class Planets(Base):
     __tablename__ = 'planets'
     id = Column(Integer, primary_key=True)
-    name = String(250)
+    name = Column(String(250))
+    climate = Column(String(250))
+    terrain = Column(String(250))
+    population = Column(Integer)
 
 class People(Base):
     __tablename__ = 'people'
     id = Column(Integer, primary_key=True)
     name = Column(String(250))
+    hair_color = Column(String(250))
+    eye_color = Column(String(250))
+    skin_color = Column(String(250))
+
+
     planets_id = Column(Integer, ForeignKey('planets.id'))
     planets = relationship(Planets)
 
